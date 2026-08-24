@@ -1,0 +1,12 @@
+{
+  "_comment": "Reglas para mapear el nombre de una campana a su etapa de funnel. Se evaluan en orden; la primera regla cuyo 'contains' aparezca en el nombre de la campana (sin distinguir mayusculas/minusculas) gana. Si ninguna regla calza, la campana cae en 'default' y se marca con advertencia hasta que se confirme manualmente aqui.",
+  "rules": [
+    { "contains": "Awareness", "stage": "Tapa alta" },
+    { "contains": "Remarketing", "stage": "Tapa media" }
+  ],
+  "default": {
+    "stage": "Conversion",
+    "confirmed": false,
+    "warningTemplate": "Campana \"{campaign}\" sin etapa confirmada - se asigno \"Conversion\" por defecto. Valida el mapeo en config/campaign-stage-map.json."
+  }
+}
